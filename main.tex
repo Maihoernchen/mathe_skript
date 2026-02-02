@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{gensymb}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage[separate-uncertainty=true]{siunitx}
+\usepackage{svg}
+\usepackage{animate}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{biblatex}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\addbibresource{mathe.bib}
+
+\newgeometry{vmargin={15mm}, hmargin={30mm,30mm}}
+
+\title{MfPI Skript}
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{"Vorwort"}
+
+Guten Morgen liebe Mitstudierende :) Hier einmal das Mathe Skript von Suris für MfPI in ordentlich formattiert mit Lernressourcen. Um beizutragen, guckt gerne auf Github vorbei: github-link.
+Viel Erfolg beim Lernen!
+
+\section{Notation}
+
+Im Folgenden werden alle Bezeichnungen von Objekten in einem \textcolor{blue}{Blauton} markiert, alle Eigenschaften die diese Objekte haben können in einem \textcolor{green}{Grünton} und alle Verknüpfungen dieser Objekte in einem \textcolor{red}{Rotton}.\\
+Hier zusätzlich ein Überblick über die verwendeten Zeichen:
+\begin{table}[H]
+\label{sammlung}
+\begin{tabular}{|L{3cm}|C{5cm}|C{5cm}|R{3cm}|}
+\hline
+Zeichen            & Sprich & Bedeutung & Latex-Code \\ \hline
+$a \in M$          & a ist Element von M& Das Element a ist in M enthalten      & \verb|\in| \\
+
+$ A \Leftrightarrow B$ & A gilt genau dann wenn (g.d.w.) B gilt & beide Aussagen sind gleichbedeutend/äquivalent & \verb|\Leftrightarrow|       \\
+
+$A \subseteq B$    &    A ist eine Teilmenge von B    &           &            \\
+
+$\subset$          &    A ist eine echte Teilmenge von B    &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                 &        &           &            \\
+
+$a$                  &        &           &            \\
+
+$a$                  &        &           &            \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Überblick MfPI}
+
+Grundlagen - Mengen, Zahlen
+Lineare Algebra
+Analysis
+
+\section{Kapitel 1: Grundlagen - Mengen}
+
+\subsection{Grundlegende Definitionen}
+
+\textbf{Definition:} (nach Georg Cantor 1895)\\
+Eine \textcolor{blue}{Menge} ist eine Zusammenfassung von bestimmen wohl-unterschiedenen Objekten unserer Anschauung oder unseres Denkens zu einem Ganzen. Diese Objekte heißen \textcolor{blue}{Elemente} der Menge.\\\\
+Wir schreiben: $a \in M$ sprich "a ist Element von M" bzw. "M enthält a"\\
+Oder gegenteilig: $a \notin M$ sprich "a ist nicht Element von M" bzw. "M enthält a nicht"\\\\
+Wie kann man eine \textcolor{blue}{Menge} definieren bzw. beschreiben? Eine \textcolor{blue}{Menge} wird definiert durch die \textcolor{blue}{Elemente} die sie enthält. \textcolor{blue}{Mengen} kann man per Aufzählung beschreiben:\\
+$$ M_1 = \{1,2,3\} \quad M_2 = \{2,4,8\} $$
+$$ M_1 \neq M_2 $$
+Es gibt \textcolor{red}{endliche} \textcolor{blue}{Mengen}:
+$$ M_{endlich} = \{1,2,3\} $$
+Und \textcolor{red}{unendliche} \textcolor{blue}{Mengen}:
+$$ M_{unendlich} = \{1,2,3,4,5,...\} $$
+\textcolor{blue}{Mengen} sind in der Regel \textcolor{red}{ungeordnet}, das heißt die Reihenfolge ihrer \textcolor{blue}{Elemente} spielt keine Bedeutung:
+$$ M = \{1,2,3\} = \{2,3,1\}$$
+\textcolor{blue}{Mengen} können durch Aufzählung beschrieben werden, aber auch durch eine Regel oder Charakteristische Eigenschaft, die alle \textcolor{blue}{Elemente} der \textcolor{blue}{Menge} erfüllen und alle \textcolor{blue}{nicht-Elemente} nicht erfüllen:
+$$ M = \{ x : x \text{ hat Eigenschaft E}\} \text{ sprich: "die Menge aller Elemente x, für die E gilt"} $$
+Zum Beispiel:
+$$ M = \{ x : x \text{ ist eine gerade natürliche Zahl}\} = \{2,4,6,8,...\} $$
+Manchmal wird dieser Doppelpunkt auch durch einen Strich $|$ ersetzt.\\
+MathematikerInnen verwenden fsr gerne Symbole, deswegen ließe sich das verwendete Beispiel auch so schreiben:
+$$ M = \{x : x\in \mathbb{N}; x\%2=0\} $$
+Im Skript gibt es jetzt ein Beispiel für ein Paradoxon das auftreten kann, das betrachte wer will, wichtig ist nur es existiert eine:
+$$ \exists \emptyset = \{\} = \text{ \textcolor{blue}{Leere Menge}} $$
+Diese enthält kein \textcolor{blue}{Element}.\\
+
+\subsection{Teilmengen}
+Es gilt:
+$$ A \subseteq B \Leftrightarrow \forall x \in A : x \in B$$
+Sprich eine Menge $A$ heißt \textcolor{blue}{Teilmenge} von $B$ wenn gilt, dass für jedes \textcolor{blue}{Element} $x$, das es in $A$ gibt, dieses \textcolor{blue}{Element} auch in $B$ vorkommt. Dabei kann $A$ auch gleich $B$ sein ($A=B \Rightarrow A \subseteq B \text{ und } B \subseteq A$). Wenn das nicht der Fall sein darf, so verwenden wir das Symbol ohne den Strich:
+$$ A \subset B \Leftrightarrow \forall x \in A : x \in B\text{ und }A\neq B$$
+Dann heißt $A$ eine \textcolor{red}{echte} \textcolor{blue}{Teilmenge} von $B$.\\
+
+\subsection{Operationen mit Mengen}
+
+
+\end{document}
