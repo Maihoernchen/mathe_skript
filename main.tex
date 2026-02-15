@@ -30,16 +30,14 @@
 
 \maketitle
 
-\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}\section{"Vorwort"}
 
-\section{"Vorwort"}
-
-Guten Morgen liebe Mitstudierende :) Hier einmal das Mathe Skript von Suris für MfPI in ordentlich formattiert mit Lernressourcen. Um beizutragen, guckt gerne auf Github vorbei: github-link.
+Guten Morgen liebe Mitstudierende :) Hier einmal das Mathe Skript von Suris für MfPI in ordentlich formattiert mit Lernressourcen. Die Aufgaben sind immer ohne Lösung und sind nicht zwingend dazu gedacht vollständig gelöst zu werden, sondern als Check, ob ein Ansatz gefunden werden kann.\\ Um beizutragen, guckt gerne auf Github vorbei: {https://github.com/Maihoernchen/mathe\_skript}\\
 Viel Erfolg beim Lernen!
 
-\section{Notation}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}\section{Notation}
 
-Im Folgenden werden alle Bezeichnungen von Objekten in einem \textcolor{blue}{Blauton} markiert, alle Eigenschaften die diese Objekte haben können in einem \textcolor{teal}{Grünton} und alle Verknüpfungen dieser Objekte in einem \textcolor{red}{Rotton}.\\
+Im Folgenden werden alle Bezeichnungen von Objekten in einem \textcolor{blue}{Blauton} markiert, alle Eigenschaften die diese Objekte haben können in einem \textcolor{red}{Rotton}, alle Verknüpfungen und Operationen dieser Objekte in einem \textcolor{teal}{Grünton} und alle Eigenschaften dieser Verknüpfungen in einem \textcolor{brown}{Braunton}. Manchmal gehen Eigenschaften in ein Objekt über, zum Beispiel wenn wir ein neues Objekt definieren, das sich über ein altes Objekt mit einer bestimmten Eigenschaft definiert. Beispiel: \textcolor{red}{geordnete} \textcolor{blue}{Menge} $\rightarrow$ \textcolor{blue}{geordnete Menge}\\
 Hier zusätzlich ein Überblick über die verwendeten Zeichen:
 \begin{table}[H]
 \label{sammlung}
@@ -78,11 +76,9 @@ $a$                  &        &           &            \\ \hline
 
 \section{Überblick MfPI}
 
-Grundlagen - Mengen, Zahlen
-Lineare Algebra
-Analysis
+\tableofcontents
 
-\section{Kapitel 1: Grundlagen - Mengen}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}\section{Kapitel 1: Grundlagen - Mengen}
 
 \subsection{Grundlegende Definitionen}
 
@@ -118,8 +114,8 @@ $$ A \subset B \Leftrightarrow \forall x \in A : x \in B\text{ und }A\neq B$$
 Dann heißt $A$ eine \textcolor{red}{echte} \textcolor{blue}{Teilmenge} von $B$.\\\\
 \textbf{Beispielaufgaben:}\\
 \begin{itemize}
-    \item Ist $M = \{1,2,4,8,16,...\}$ gleich $N = \{x: x = 2^b\}$ mit $b\in \mathbb{N}_0$?
-    \item Ist die Menge aller Vögel eine Teilmenge der Menge aller Tiere?
+    \item Ist $M = \{1,2,4,8,16,...\}$ gleich $N = \{x: x = 2^b\}$ mit $b\in \mathbb{Z}$?
+    \item Ist die Menge aller Vögel eine Teilmenge der Menge aller Tiere, die fliegen können?
     \item Ist die Menge aller Rationalen Zahlen $\mathbb{Q}$ eine echte Teilmenge von der Menge $ M = \{ x : x = \frac{a}{b}\} $ mit $a,b \in \mathbb{Z}$ ?
 \end{itemize}
 Bemerke, dass wir auch \textcolor{teal}{Teilmenge} schreiben könnten, da der Begriff eine Relation beschreibt (Eine Menge kann keine Teilmenge an sich sein, sondern nur in Bezug auf eine andere Menge).\\
@@ -131,6 +127,177 @@ Bemerke, dass wir auch \textcolor{teal}{Teilmenge} schreiben könnten, da der Be
 
 \subsection{Operationen mit Mengen}
 
+\textbf{\textcolor{teal}{Vereinigung} von A und B mit \textcolor{blue}{Vereinigungsmenge} C:}
+$$ C = A\cup B = \{ x: x\in A \textbf{ oder } x\in B\} $$
+\textbf{\textcolor{teal}{Schnitt} von A und B mit \textcolor{blue}{Schnittmenge} C:}
+$$ C =A\cap B = \{ x: x\in A \textbf{ und } x\in B\} $$
+\textbf{\textcolor{teal}{Komplement} von B in A mit \textcolor{blue}{Komplementmenge} C:}
+$$ C = A\backslash B = \{x:x \in A \textbf{ und } x \notin B\}$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{mengen.png}
+    \caption{Illustrierende Graphik von http://members.chello.at/gut.jutta.gerhard/kurs/mengendiagramme.gif}
+    \label{fig:placeholder}
+\end{figure}
+\noindent\textbf{\textcolor{teal}{Potenzierung} von A mit \textcolor{blue}{Potenzmenge} C:}
+$$ C = 2^A = \{x: x \subseteq A\}$$
+Merke, dass $x$ selber eine \textcolor{blue}{Menge} ist, nämlich eine, die eine \textcolor{blue}{Teilmenge} von A ist. Eine \textcolor{blue}{Potenzmenge} ist also eine \textcolor{blue}{Menge} von \textcolor{blue}{Mengen}.\\
+\textbf{Beispiel:}\\
+$$ A = \{1,2,3\}$$
+$$ C = 2^A = \{\{\emptyset\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$$
+Merke außerdem, dass wir immer die \textcolor{blue}{Leermenge} mitzählen, da diese eine \textcolor{teal}{Teilmenge} von allen möglichen \textcolor{blue}{Mengen} ist.\\\\
+\textbf{\textcolor{blue}{Mächtigkeit} N von A:}
+$$ N = \# A = \text{Die Anzahl aller Elemente von A (nur bei endlichen Mengen).}$$
+\textbf{Beispielaufgaben:}
+\begin{itemize}
+    \item Prüfe für welche Mengen $A,B$ gilt: $A \cup B = A\backslash B$
+    \item Prüfe ob $ A\cap B = A\backslash B$ gelten kann, wenn $A\neq \emptyset$
+    \item (Sehr knobelig) Wie viele Teilmengen von $M = \{1,2,3,4,...,2000\}$ gibt es, bei denen die Summe ihrer Elemente durch 5 teilbar ist?
+\end{itemize}
+\textbf{Merkblatt und Videos:}
+\begin{itemize}
+    \item http://members.chello.at/gut.jutta.gerhard/kurs/mengen.htm
+    \item https://studyflix.de/mathematik/schnittmenge-5249
+    \item Für die letzte Aufgabe: https://youtu.be/bOXCLR3Wric?si=hZIHvDNzIjCt8AS0
+\end{itemize}
 
+\subsection{Eigenschaften von Mengenoperationen}
+\textbf{\textcolor{brown}{Kommutativität:}}
+$$ A\cup B = B\cup A$$
+$$ A \cap B = B\cap A$$
+\textbf{\textcolor{brown}{Assoziativität:}}
+$$ A \cup (B\cup C) = (A\cup B) \cup C$$
+$$ A \cap (B\cap C) = (A\cap B) \cap C$$
+\textbf{\textcolor{brown}{Distributivität:}}
+$$ A \cap (B\cup C) = (A\cap B) \cup (A\cap C) $$
+$$ A \cup (B\cap C) = (A\cup B) \cap (A\cup C) $$
+\textbf{\textcolor{brown}{Idempotenzgesetz:}}
+$$ A \cap A = A$$
+$$ A \cup A = A$$
+\textbf{\textcolor{brown}{Adjunktivgesetz:}}
+$$ A \cap (A \cup B) = A$$
+$$ A \cup (A\cap B) = A$$
+\textbf{\textcolor{brown}{Bezeichnende Eigenschaften} der \textcolor{blue}{Leermenge}:}
+$$ A \cup \emptyset = A$$
+$$ A \cap \emptyset = \emptyset$$
+\textbf{\textcolor{brown}{deMorgansche Regeln:}}
+$$ C \backslash (A\cup B) = (C\backslash A) \cap (C\backslash B)$$
+$$ C \backslash (A\cap B) = (C\backslash A) \cup (C\backslash B)$$
+\textbf{Beweis:}\\
+Eine \textcolor{blue}{Menge} definiert sich durch die \textcolor{blue}{Elemente}, die sie enthält. Um zu beweisen, dass zwei \textcolor{blue}{Mengen} gleich sind, beweisen wir in der Regel einfach, dass wenn ein \textcolor{blue}{Element} in der einen \textcolor{blue}{Menge} ist, es auch in der anderen \textcolor{blue}{Menge} ist und umgekehrt. Wir beweisen also, dass beide \textcolor{blue}{Mengen} \textcolor{red}{unechte} \textcolor{blue}{Teilmengen} der jeweils anderen sind:
+$$ A = B \Leftrightarrow A \subseteq B \text{ und } B \subseteq A$$
+Die \textbf{Aufgabe} für diesen Abschnitt ist, die verschiedenen Eigenschaften zu beweisen. Wichtig ist dabei sich daran zu erinnern, dass die \textcolor{red}{Reihenfolge} der \textcolor{blue}{Elemente} keine Rolle spielt.
+
+\subsection{Tupel, Tripel und weitere geordnete Mengen}\label{sec:geoMen}
+
+\textbf{Definition:}\\
+Eine \textcolor{red}{geordnete} \textcolor{blue}{Menge} ist jene, in der die \textcolor{red}{Reihenfolge} der \textcolor{blue}{Elemente} relevant ist. Sie wird häufig mit runden Klammern geschrieben:\\
+$$ (1,2,3)\neq (1,3,2) \neq (2,1,3) \neq (2,3,1) \neq (3,1,2) \neq (3,2,1) $$
+Für eine \textcolor{blue}{Menge} mit 3 verschiedenen \textcolor{blue}{Elementen} gibt es sechs verschiedene Möglichkeiten ein \textcolor{blue}{Tripel} zu bilden. Allgemeiner gesagt:\\
+Aus \textcolor{blue}{Mengen} $M$ mit $n$ verschiedenen \textcolor{blue}{Elementen} lassen sich $n! = \#M!$ verschiedene \textcolor{blue}{geordnete Mengen} bilden. Warum das so ist sollte sichtbar werden, wenn die Permutations- (Vertauschungs- ) Möglichkeiten der \textcolor{blue}{Elemente} betrachtet werden.\\
+\textbf{Beispielaufgaben:}
+\begin{itemize}
+    \item Fand das Unterkapitel jetzt nicht so deep, aber versucht gerne herauszufinden wie viele geordnete Mengen $G$ mit Mächtigkeit $\#G = g$ es gibt, die sich aus einer Menge $U$ bilden lassen, wobei $\# U = u > g$
+\end{itemize}
+\textbf{Videos:}
+\begin{itemize}
+    \item https://studyflix.de/mathematik/tupel-7258
+\end{itemize}
+
+\subsection{Kartesisches Produkt}
+
+\textbf{Definition:}\\
+Das \textcolor{blue}{kartesische Produkt} $C$ bei der "\textcolor{teal}{Multiplikation}" zweier \textcolor{blue}{Mengen} $A,B$ ist:
+$$ C = A\times B = \{(a,b): a\in A \text{ und } b\in B\}$$
+Also die \textcolor{blue}{Menge} aller \textcolor{blue}{Tupel}, wobei das erste \textcolor{blue}{Element} im Tupel in der ersten \textcolor{blue}{Menge} sein muss und das zweite in der zweiten.\\
+\textbf{Beispiel:}
+$$ A=\{1,2,3\}\quad B=\{1,3,5\} $$
+$$ C = A\times B = \{(1,1),(1,3),(1,5),(2,1),(2,3),(2,5),(3,1),(3,3),(3,5)\} $$
+Merke: In \textcolor{blue}{geordneten Mengen} kann das gleiche \textcolor{blue}{Element} mehrmals vorkommen. Allgemein gilt für \textcolor{red}{endliche} \textcolor{blue}{Mengen}:
+$$ \#(A\times B) = (\#A) \cdot (\# B) $$
+Und \textbf{ganz allgemein gilt:}\\
+Bei $n$ Mengen $A_1,A_2,A_3,...,A_n$ ist 
+$$A_1\times A_2\times ...\times A_n = \{ (x_1,x_2,...,x_n): x_1 \in A_1, x_2 \in A_2,..., x_n \in A_n\}$$
+\textbf{Aufgaben:}
+\begin{itemize}
+    \item Welche der für andere Operationen festgestellte Eigenschaften erfüllt diese "Multiplikation"?
+    \item 
+\end{itemize}
+
+\section{Kapitel 2: Grundlagen - Zahlen und Induktionsbeweise}
+\textbf{Motivation:}\\
+Grundsätzlich gilt: Wir MathematikerInnen definieren neue Zahlenarten (manchmal auch genannt Zahlenbereiche) immer wenn wir neue Operationen anwenden wollen, die ein bekannter Zahlenbereich nicht erlaubt. Zu der genauen Erklärung kommen wir später, aber hier ein paar \textbf{Beispiele:}
+\begin{itemize}
+    \item Als die Natürlichen Zahlen $\mathbb{N}$ keine \textcolor{teal}{Subtraktion} unterstützen wollten ($3-5 = ?$) haben wir sie auf die Ganzen Zahlen erweitert: $3-5 = -2 \quad -2\in\mathbb{Z}$
+    \item Als die Ganzen Zahlen $\mathbb{Z}$ keine \textcolor{teal}{Division} unterstützen wollten ($-8 \div -3 = ?$) haben wir sie auf die Rationalen Zahlen $\mathbb{Q}$ erweitert: $-8\div -3 = \frac{8}{3}\quad \frac{8}{3}\in\mathbb{Q}$
+    \item Als auch alle möglichen Brüche $\mathbb{Q}$ nicht ausreichten um z.B. das Resultat einer \textcolor{teal}{Wurzeloperation} auf einer Zahl nicht genau auszudrücken ($\sqrt{2}=\frac{a}{b}\quad a,b=?$) haben wir uns die reellen zahlen $\mathbb{R}$ gebaut
+\end{itemize}
+\subsection{Natürliche Zahlen und vollständige Induktion}
+\textbf{Definition:}\\
+\textcolor{red}{Natürliche} \textcolor{blue}{Zahlen} $\mathbb{N} = \{1,2,3,4,5,...\}$\\
+Mit Null $\mathbb{N}_0 = \{0,1,2,3,4,...\}$\\
+\textbf{Operationen:}
+$$ \textbf{\textcolor{teal}{Addition}: } a+b = c \text{ mit }a,b,c\in \mathbb{N}$$
+$$ \textbf{\textcolor{teal}{Multiplikation}: } a\cdot b = c \text{ mit }a,b,c\in \mathbb{N}$$
+Jede \textcolor{blue}{Natürliche Zahl} ist auch schreibbar als Aufsummierung von Einsen:\\
+$$ n = 1+1+1+1+...\quad \forall n\in \mathbb{N} $$
+\textbf{WICHTIG!:}\\
+Von da kommen wir zu einer sehr mächtigen Beweismethode: Vollständiger Induktion. Mit dieser können wir beweisen, dass eine Behauptung $B$ für alle natürlichen Zahlen gilt. Und zwar wie folgt:
+\begin{itemize}
+    \item Wir beweisen die Behauptung zuerst für eine \textbf{Induktionsbasis} (meistens 1) $B(1)$.
+    \item Dann beweisen wir, dass wenn die Behauptung für eine beliebige natürliche Zahl (meistens geschrieben n) gilt, sie auch für das Inkrement dieser Zahl n+1 gilt. 
+    $$ B(n) \Rightarrow B(n+1) $$
+    Das heißt \textbf{Induktionsschritt}.
+    \item Damit ist der Beweis abgeschlossen! Denn wenn es für 1 gilt, und für n+1, dann muss es mit n=1 für n+1=2 gelten, mit n=2 für n+1=3, usw.
+\end{itemize}
+Merke, dass man diesen Beweis immer \textbf{über} eine Variable macht, die eine natürliche Zahl beschreibt. Beispiel:\\
+$$ (1+x)^n \geq 1+nx \quad \forall x>0 \quad \forall n\in \mathbb{N} $$
+Hier beschreibt $x$ eine beliebige reelle Zahl und unser Beweis funktioniert demnach nur mit Induktion \textbf{über} $n$. In einem Beweis mit mehreren Variablen ist eine davon quasi "\textbf{fixiert}", weil sie nie einen Wert annimmt, sondern immer nur als Variable da steht und der Beweis "\textbf{läuft}" über eine Variable, die eine natürliche Zahl beschreibt, indem er quasi jeden Wert, den diese Variable annehmen kann "abklappert".\\
+\textbf{Beispielaufgaben aus Skript und AB:} (Induktion immer über n)
+\begin{itemize}
+    \item Behauptung 1: $\# 2^A = 2^{n}$ mit $n = \# A$
+    \item Behauptung 2: Für $n$ Elemente gibt es $n!$ Weisen diese anzuordnen. (Kennen wir aus geordneten Mengen \ref{sec:geoMen})
+    \item Behauptung 3: Das Beispiel oben: $(1+x)^n \geq 1+nx$ solange $x > 0$
+    \item Behauptung 4: $1^2 + 2^2 + 3^2+...+n^2 = \frac{1}{6}n(n+1)(2n+1)$
+    \item Behauptung 5: $\frac{1}{1\cdot3}+\frac{1}{3\cdot5}+\frac{1}{5\cdot7}+...+\frac{1}{(2n-1)\cdot(2n+1)} = \frac{n}{2n+1}$
+\end{itemize}
+\textbf{Videos:}
+\begin{itemize}
+    \item https://studyflix.de/mathematik/vollstandige-induktion-2406
+    \item https://studyflix.de/mathematik/vollstandige-induktion-aufgaben-2429
+\end{itemize}
+\subsection{Ganze Zahlen}
+\textbf{Definition:}\\
+Wir fügen um die \textcolor{blue}{Ganzen Zahlen} $\mathbb{Z}$ zu erhalten, zu den \textcolor{blue}{natürlichen Zahlen mit Null} $\mathbb{N}_0$ die vollständig definierte Verknüpfung der \textcolor{teal}{Subtraktion} (-) hinzu:
+$$ a - a = 0 \text{ bzw. }a+(-a) = 0 \text{ wobei } a\in\mathbb{N} \text{ und } -a\in \mathbb{Z}$$
+Einfach ausgedrückt sind die \textcolor{blue}{ganzen Zahlen} also:\\
+$$ \mathbb{Z} = \{...,-4,-3,-2,-1,0,1,2,3,4,...\}$$
+Es ist sehr hilfreich selbst zu erklären, warum Null in dieser Menge sein muss und wie dieses Nullelement überhaupt definierbar ist (Stichwort: \textcolor{red}{neutrales} \textcolor{blue}{Element} der \textcolor{teal}{Addition}).
+\subsection{Rationale Zahlen}
+\textbf{Definition:}\\
+Wir fügen um die \textcolor{blue}{Rationalen Zahlen} $\mathbb{Q}$ zu erhalten, zu den \textcolor{blue}{Ganzen Zahlen} eine vollständig definierte Verknüpfung der \textcolor{teal}{Division} ($\div,\backslash,\frac{a}{b}$) hinzu:
+\begin{align}
+    \mathbb{Q} &= \{\frac{p}{q}: p\in\mathbb{Z}\quad q\in\mathbb{Z}\backslash \{0\}\}\\
+    &= \{\frac{p}{q}: p\in\mathbb{Z}\quad q\in\mathbb{N}\}
+\end{align}
+Mich hat das mit dem $\mathbb{N}$ bisschen verwirrt, weil ja in einem Bruch auch negative Zahlen im Nenner stehen können, aber das ist ja dasselbe, wie wenn das Minus einfach im Zähler steht:
+$$ \frac{p}{-q} = \frac{-p}{q} $$
+Beim nächsten Schritt bin ich das erste Mal ausgestiegen. Wir wollen \textbf{beweisen:}\\\\
+\textbf{Es gibt keine rationale Zahl $\alpha=\frac{p}{q}\quad r\in\mathbb{Q}\quad p\in\mathbb{Z}\quad q\in\mathbb{N}$ für die gilt: $\alpha^2 = \frac{p^2}{q^2} = 2$}\\\\
+Ich versuche es so gut wie möglich zu erklären, aber schaut lieber nochmal bei einem der Videos \ref{vid:ratNum} vorbei.\\
+\textbf{Wir beweisen mit Kontradiktion:} (basically, wir nehmen das Gegenteil an und widerlegen das)\\
+Angenommen es gäbe eine Zahl $\alpha^2 = \frac{p^2}{q^2} = 2$. 
+
+
+
+
+\textbf{Videos:}\label{vid:ratNum}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsection{Reelle Zahlen}
+\textbf{Definition:}\\
+Jetzt wollen wir aber eine Zahl $r$, für die gilt: $r^2=2$. Wir haben also wieder eine neue Operation, die wir fsr \textcolor{teal}{Wurzeloperation} genannt haben und diese liefert uns die Menge der \textcolor{blue}{Reellen Zahlen} $\mathbb{R}$. Naja nicht ganz. Die reellen Zahlen umfassen auch keine Lösung für $\sqrt{-a}$ für alle $a<0$, aber dazu kommen wir später. Außerdem sind reelle Zahlen ein bisschen diffuser definiert, als einfach über eine hinzugefügte Wurzeloperation. In der Vorlesung haben wir uns wie folgt herangewagt:
 
 \end{document}
