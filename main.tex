@@ -16,6 +16,9 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{array}
+\usepackage{multicol}
+\usepackage{ragged2e}
+
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -299,5 +302,272 @@ Angenommen es gäbe eine Zahl $\alpha^2 = \frac{p^2}{q^2} = 2$.
 \subsection{Reelle Zahlen}
 \textbf{Definition:}\\
 Jetzt wollen wir aber eine Zahl $r$, für die gilt: $r^2=2$. Wir haben also wieder eine neue Operation, die wir fsr \textcolor{teal}{Wurzeloperation} genannt haben und diese liefert uns die Menge der \textcolor{blue}{Reellen Zahlen} $\mathbb{R}$. Naja nicht ganz. Die reellen Zahlen umfassen auch keine Lösung für $\sqrt{-a}$ für alle $a<0$, aber dazu kommen wir später. Außerdem sind reelle Zahlen ein bisschen diffuser definiert, als einfach über eine hinzugefügte Wurzeloperation. In der Vorlesung haben wir uns wie folgt herangewagt:
+
+
+\section{Kapitel 3: Grundlagen: – Abbildungen}
+
+\section{Kapitel 4: Lineare Algebra – Vektoren, Matrizen und Matrixmultiplikation}
+
+Es gibt zwei große Grundtypen, zu welchen es den Großteil an Theorie und aufgeben in der Linearen Lagebra gibt. Diese sind 
+
+\begin{multicols}{2}
+    \begin{equation}
+        Ax = b
+    \end{equation}
+    \centering Lösung lineare Gleichungssysteme. $x$ und $b$ sind Vektoren, wobei $A$ eine Matrix ist.
+    
+    
+    \columnbreak
+
+    \begin{equation}
+        Ax = \lambda x
+    \end{equation}
+    \centering Eigenwert Problem. $A$ ist eine Matrix, $\lambda$ ein Skalar und $x$ ein Vektor
+\end{multicols}
+
+\noindent \textbf{Es wird mit $Ax = b$ angefangen.}
+
+\begin{multicols}{2}
+
+    \begin{equation}
+        Ax = b
+        \left\{\begin{array}{cc}
+                2x_1 + x_2 + x_3 = 5  \\
+                4x_1 - 6x_2 =  -2 \\
+                -2x_1 + 7x_2 + 2x_3 = 9
+            \end{array} \right.
+    \end{equation}
+    
+    
+    \columnbreak
+        \vspace*{\fill}
+        \noindent Ein System an drei linearen algebraischen Gleichungen für 3 Unbekannte $x_1$, $x_2$, $x_3$.
+        \vspace*{\fill}
+    
+    \end{multicols}
+
+    Zwei mögliche (geometrische) Interpretationen dieses Systems. \\
+    a) \underline{Zeilenweise.} Jede Zeile ist eine Ebenengleichung, beispielsweise in einem 3-Dimensionalen Raum. Es geht um die Punkte $(x_1, x_2, x_3)$, die gleichzeitig den drei Ebenen angehörig sind, d.h. um den Schnitt von drei Ebenen. Für einen 3-Dimensionalen Raum schneiden sich zwei Ebenen in einer Gerade und drei Ebenen in einem Punkt. Die Koordinaten von diesem Punkt $(x_1, x_2, x_3)$ bilden die Lösung des Gleichungssystems. Weitere Schnittmöglichkeiten von drei Ebenen im $\mathbb{R}^3$:
+
+    \begin{multicols}{2}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.95\linewidth]{Kapitel4/Screenshot From 2026-02-18 13-11-10.png}
+            %\caption{Schni}
+            \label{fig:Kap4:AllgemeineLage}
+        \end{figure}
+
+        \columnbreak
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.95\linewidth]{Kapitel4/Screenshot From 2026-02-18 13-11-41.png}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:ZweiParraEbenen}
+        \end{figure}
+
+        
+    \end{multicols}
+
+    \begin{multicols}{3}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.95\linewidth]{Kapitel4/Screenshot From 2026-02-18 13-12-00.png}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:SchnittAller3Leer}
+        \end{figure}
+
+        \columnbreak
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.95\linewidth]{Kapitel4/Screenshot From 2026-02-18 13-12-21.png}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:SchnittInGerade}
+        \end{figure}
+
+        \columnbreak
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.95\linewidth]{Kapitel4/Screenshot From 2026-02-18 13-12-36.png}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:SchnittLeer}
+        \end{figure}
+    \end{multicols}
+
+    \begin{multicols}{2}
+
+        \begin{equation}
+            \left.\begin{array}{c}\text{a) - Allgemeine Lage - eine Lösung}\\ \text{d) - unendlich viele Lösungen}\\ \text{b), c) e) - keine Lösung}  \end{array}\right\} 
+        \end{equation}
+
+    \columnbreak
+    
+        \vspace*{\fill}
+        \noindent von einem System von 3 linearen Gleichungen mit 3 Unbekannten.
+        \vspace*{\fill}
+     
+    \end{multicols}
+
+    b) \underline{Spaltenweise.}
+    \begin{equation}
+        x_1 \cdot \left(\begin{array}{c}2 \\4 \\-2 \end{array}\right) + x_2 \cdot \left(\begin{array}{c}1 \\-6 \\7 \end{array}\right) + x_3 \cdot \left(\begin{array}{c}1 \\0 \\2 \end{array}\right) = \left(\begin{array}{c}5 \\-2 \\9 \end{array}\right) = x_1 \cdot v_1 + x_2 \cdot v_2 + x_3 \cdot v_3
+    \end{equation}
+    Dies ist eine Linearkombination, wobei die Koeffizienten $(x_1, x_2, x_3)$ unbekannt sind. Es wird nach einer Linearkombination gefragt, welche den vorgegebenen Vektor $(5, -2, 9)^\mathrm{T}$ ergibt. In der allgemeinen Lage spannen die drei Vektoren einen 3-Dimensionalen Raum auf, worin der vorgegebene drin liegt, für genau ein Tripel an Koeffizienten $(x_1, x_2, x_3)$. Es kommt also darauf an, dass die Vektoren der Linearkombination den gesamten $\mathbb{R}^3$ Aufspannen. Was kann Schiefgehen?
+    
+    Es ist möglich, dass die drei Vektoren nicht den Gesamten $\mathbb{R}^3$ aufspannen, sondern eine Ebene oder Gerade. 
+
+    \begin{multicols}{2}
+        \begin{equation}
+            \left( \text{z.B. } \left(\begin{array}{c}1 \\2 \\3\end{array}\right), \left(\begin{array}{c}3 \\2 \\1\end{array}\right), \left(\begin{array}{c}1 \\1 \\1\end{array}\right) \right)
+        \end{equation}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\linewidth]{Kapitel4/LinKomEbene.pdf}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:LinKomEbene}
+        \end{figure}
+        Für die Ebene
+
+        \columnbreak
+
+        \begin{equation}
+            \left( \text{z.B. } \left(\begin{array}{c}1 \\2 \\3\end{array}\right), \left(\begin{array}{c}2 \\4 \\6\end{array}\right), \left(\begin{array}{c}-3 \\-6 \\-9\end{array}\right) \right)
+        \end{equation}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{Kapitel4/LinKomGerade.pdf}
+            %\caption{Enter Caption}
+            \label{fig:Kap4:LinKomGerade}
+        \end{figure}
+        Für die Gerade.
+    \end{multicols}
+
+     In diesen Fällen kommt es auf den Vektor $b$ an, ob dieser in dem Raum (Gerade/ Ebene) der Vektoren liegt, die durch die Vektoren aufgespannt werden, dann gibt es unendlich viele Lösungen. Sollte der Vektor $b$ nicht in dem Raum sein so gibt es keine Lösung des Gleichungssystems. 
+
+     \underline{Matrix notation:}
+     \begin{equation}
+         \left(\begin{array}{ccc} 2&  1& 1\\ 4&  -6& 0\\ -2&  7& 2\end{array}\right) 
+         \cdot
+         \left(\begin{array}{c}x_1\\x_2 \\x_3 \end{array}\right)
+         = \left(\begin{array}{c}5 \\-2 \\9\end{array}\right)= Ax = b
+     \end{equation}
+
+     $A = \left(\begin{array}{ccc} 2&  1& 1\\ 4&  -6& 0\\ -2&  7& 2\end{array}\right) \in mat_{3 \times 3} (\mathbb{R})$ - eine $3 \times 3$ Matrix mit reellen Einträgen
+
+     Allgemeiner betrachten wir $mat_{p \times q} (\mathbb{R}) = \mathbb{R}^{p \times q}$ bzw. $mat_{p \times q} (\mathbb{C}) = \mathbb{C}^{p \times q} $ - die Menge von $p \times q$ Matrizen (d.h. Tabellen mit p Zeilen und q Spalten) mit reellen bzw. komplexen Einträgen. 
+
+     \begin{multicols}{2}
+
+        \begin{equation}
+            x = \left(\begin{array}{c}x_1 \\x_2 \\x_3 \end{array} \right) \in \mathbb{R}^3 (\text{oder } \mathbb{C}^3)
+        \end{equation}
+
+        \begin{equation}
+            b = \left(\begin{array}{c}5 \\-2 \\9 \end{array} \right) \in \mathbb{R}^3 (\text{oder } \mathbb{C}^3)
+        \end{equation}
+
+        \columnbreak
+
+        \vspace*{\fill}
+        Vektoren sind üblicherweise Spaltenvektoren.
+        \vspace*{\fill}
+        
+     \end{multicols}
+
+\section{Kapitel 5: Lineare Algebra – Vektorräume $\mathbb{R}^n$, $\mathbb{C}^n$ und Allgemeine Vektorräume}
+
+    \begin{equation}
+        \mathbb{R}^n =\underbrace{\mathbb{R} \times \mathbb{R} \times \mathbb{R} \times ... \mathbb{R} }_{n} = \left\{ \vec{x} = \left(\begin{array}{c}x_1 \\ x_2\\ ...\\ x_n \end{array}\right) : x_1, x_2, ..., x_n \in \mathbb{R}\right\}
+    \end{equation}
+    Dabei sind $\vec{x}$ geordnete n-Tupel von reellen Zahlen, als Spalte geschrieben sind. 
+    \begin{equation}
+        \mathbb{C}^n =\underbrace{\mathbb{C} \times \mathbb{C} \times \mathbb{C} \times ... \mathbb{C} }_{n} = \left\{ \vec{z} = \left(\begin{array}{c}z_1 \\ z_2\\ ...\\ z_n \end{array}\right) : z_1, z_2, ..., z_n \in \mathbb{R}\right\}
+    \end{equation}
+
+    Allgemeiner: sein $\mathbb{K}$ ein Körper, d.h. eine Menge mit zwei Operationen 
+    \begin{equation}
+        + : \mathbb{K \times K} \rightarrow \mathbb{K} \hspace{1cm} \text{(Addition)}
+    \end{equation}
+
+    \begin{equation}
+        \cdot : \mathbb{K \times K} \rightarrow \mathbb{K} \hspace{1cm}\text{(Multiplikation)}
+    \end{equation}
+    mit folgenden Eigenschaften:
+    \begin{multicols}{2}
+
+        \begin{equation}
+            a+b =b+a \hspace{1cm}\forall a,b \in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            (a+b)+c = a+(b+c) \hspace{1cm} \forall a,b,c \in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            \exists 0 \in \mathbb{K} : a+0=0+a = a \hspace{1cm} \forall a\in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            \forall a \in \mathbb{K} \exists(-a) \in \mathbb{K} : a + (-a) = (-a) + a = 0
+        \end{equation}
+
+        \columnbreak
+
+        \begin{equation}
+            a \cdot b = b\cdot a \hspace{1cm} \forall a, b \in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            (a \cdot b ) \cdot c = a\cdot (b \cdot c) \hspace{1cm} \forall a,b,c \in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            \exists 1 \in \mathbb{K} : a \cdot 1 = 1 \cdot a = a \hspace{1cm} \forall a \in \mathbb{K}
+        \end{equation}
+        \begin{equation}
+            \forall a \in \mathbb{K} \backslash \{0\} \exists a^{-1} \in \mathbb{K} : a \cdot a^{-1} = a^{-1} \cdot a = 1
+        \end{equation}  
+        
+    \end{multicols}
+    \begin{center}
+        und
+    \end{center}
+
+    \begin{equation}
+        a \cdot(b + c) = a \cdot b + a\cdot c
+    \end{equation}
+
+    Beispiele: $\mathbb{K = R, C, Q}$
+    Merke: $\mathbb{N, Z}$ - Keine Körper.
+    Für jeden Körper $\mathbb{K}$ definiert man den Raum $\mathbb{K}^n$ der Spaltenvektoren mit Einträgen aus $\mathbb{K}$:
+
+    \begin{equation}
+        \mathbb{K}^n = \left\{ a = \left(\begin{array}{c}a_1 \\a_2 \\\dots \\a_n \end{array} \right): a_1, a_2, \dots, a_n \in \mathbb{K}\right\}
+    \end{equation}
+    ($\mathbb{K}$ - der Körper von Skalaren)
+    Auf $\mathbb{K}^n$ kann man zwei Operationen definieren:
+    \begin{equation}
+        + : \mathbb{K \times K} \rightarrow \mathbb{K} \hspace{1cm} \text{(Addition von Vektoren)}
+    \end{equation}
+
+    \begin{equation}
+        \cdot : \mathbb{K \times K} \rightarrow \mathbb{K} \hspace{1cm}\text{(Multiplikation von Vektoren mit Skalaren)}
+    \end{equation}
+    nämlich
+    \begin{equation}
+        \vec{a} + \vec{b} = \left( \begin{array}{c}a_1 \\a_2 \\ \dots\\a_n \end{array}\right) + \left( \begin{array}{c}b_1 \\b_2 \\ \dots\\b_n \end{array}\right) = \left( \begin{array}{c}a_1 + b_1\\a_2 + b_2 \\ \dots\\a_n +b_n\end{array}\right), \hspace{1cm} \alpha \cdot \vec{a} = \alpha \cdot \left( \begin{array}{c}a_1 \\a_2 \\ \dots\\a_n \end{array}\right) = \left( \begin{array}{c}\alpha \cdot a_1 \\ \alpha \cdot a_2 \\ \dots\\ \alpha \cdot a_n \end{array}\right)
+    \end{equation}
+
+    Man überprüft leicht, dass für $V = \mathbb{K}^n$ die golgenden Eigenschaften dieser Operationen erfüllt sind:  
+    
+\section{Kapitel 6: Lineare Algebra – Lineare Abhängigkeit, Basis und Dimension}
+
+\section{Kapitel 9: Lineare Algebra – Hauptsatz der Linearen Algebra, Teil 1}
+
+\section{Kapitel 10: Lineare Algebra – Das Matrixprodukt (und andere Operationen mit Matrizen)}
+
+\section{Kapitel 11: Lineare Algebra – Inversion (Umkehrung) von Matrizen}
+
+\section{Kapitel 13: Lineare Algebra - Skalarprodukte, Orthogonalität, Euklidische Vektorräume}
+
+
 
 \end{document}
