@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amsmath}
+\usepackage{amssymb,graphicx,mathtools}
 \usepackage{amsfonts}
 \usepackage{geometry}
 \usepackage{gensymb}
@@ -301,7 +302,7 @@ Angenommen es gäbe eine Zahl $\alpha^2 = \frac{p^2}{q^2} = 2$.
 
 \subsection{Reelle Zahlen}
 \textbf{Definition:}\\
-Jetzt wollen wir aber eine Zahl $r$, für die gilt: $r^2=2$. Wir haben also wieder eine neue Operation, die wir fsr \textcolor{teal}{Wurzeloperation} genannt haben und diese liefert uns die Menge der \textcolor{blue}{Reellen Zahlen} $\mathbb{R}$. Naja nicht ganz. Die reellen Zahlen umfassen auch keine Lösung für $\sqrt{-a}$ für alle $a<0$, aber dazu kommen wir später. Außerdem sind reelle Zahlen ein bisschen diffuser definiert, als einfach über eine hinzugefügte Wurzeloperation. In der Vorlesung haben wir uns wie folgt herangewagt:
+Jetzt wollen wir aber eine Zahl $r$, für die gilt: $r^2=2$. Wir haben also wieder eine neue Operation, die wir für \textcolor{teal}{Wurzeloperation} genannt haben und diese liefert uns die Menge der \textcolor{blue}{Reellen Zahlen} $\mathbb{R}$. Naja nicht ganz. Die reellen Zahlen umfassen auch keine Lösung für $\sqrt{-a}$ für alle $a<0$, aber dazu kommen wir später. Außerdem sind reelle Zahlen ein bisschen diffuser definiert, als einfach über eine hinzugefügte Wurzeloperation. In der Vorlesung haben wir uns wie folgt herangewagt:
 
 
 \section{Kapitel 3: Grundlagen: – Abbildungen}
@@ -480,13 +481,12 @@ Es gibt zwei große Grundtypen, zu welchen es den Großteil an Theorie und aufge
 \section{Kapitel 5: Lineare Algebra – Vektorräume $\mathbb{R}^n$, $\mathbb{C}^n$ und Allgemeine Vektorräume}
 
     \begin{equation}
-        \mathbb{R}^n =\underbrace{\mathbb{R} \times \mathbb{R} \times \mathbb{R} \times ... \mathbb{R} }_{n} = \left\{ \vec{x} = \left(\begin{array}{c}x_1 \\ x_2\\ ...\\ x_n \end{array}\right) : x_1, x_2, ..., x_n \in \mathbb{R}\right\}
+        \mathbb{R}^n =\underbrace{\mathbb{R} \times \mathbb{R} \times \mathbb{R} \times ... \mathbb{R} }_{n} = \left\{ \vec{x} = \left(\begin{array}{c}x_1 \\ x_2\\ \vdots\\ x_n \end{array}\right) : x_1, x_2, \dots, x_n \in \mathbb{R}\right\}
     \end{equation}
     Dabei sind $\vec{x}$ geordnete n-Tupel von reellen Zahlen, als Spalte geschrieben sind. 
     \begin{equation}
-        \mathbb{C}^n =\underbrace{\mathbb{C} \times \mathbb{C} \times \mathbb{C} \times ... \mathbb{C} }_{n} = \left\{ \vec{z} = \left(\begin{array}{c}z_1 \\ z_2\\ ...\\ z_n \end{array}\right) : z_1, z_2, ..., z_n \in \mathbb{R}\right\}
+        \mathbb{C}^n =\underbrace{\mathbb{C} \times \mathbb{C} \times \mathbb{C} \times ... \mathbb{C} }_{n} = \left\{ \vec{z} = \left(\begin{array}{c}z_1 \\ z_2\\ \vdots \\ z_n \end{array}\right) : z_1, z_2, \dots, z_n \in \mathbb{R}\right\}
     \end{equation}
-
     Allgemeiner: sein $\mathbb{K}$ ein Körper, d.h. eine Menge mit zwei Operationen 
     \begin{equation}
         + : \mathbb{K \times K} \rightarrow \mathbb{K} \hspace{1cm} \text{(Addition)}
@@ -534,13 +534,11 @@ Es gibt zwei große Grundtypen, zu welchen es den Großteil an Theorie und aufge
     \begin{equation}
         a \cdot(b + c) = a \cdot b + a\cdot c
     \end{equation}
-
     Beispiele: $\mathbb{K = R, C, Q}$
     Merke: $\mathbb{N, Z}$ - Keine Körper.
     Für jeden Körper $\mathbb{K}$ definiert man den Raum $\mathbb{K}^n$ der Spaltenvektoren mit Einträgen aus $\mathbb{K}$:
-
     \begin{equation}
-        \mathbb{K}^n = \left\{ a = \left(\begin{array}{c}a_1 \\a_2 \\\dots \\a_n \end{array} \right): a_1, a_2, \dots, a_n \in \mathbb{K}\right\}
+        \mathbb{K}^n = \left\{ a = \left(\begin{array}{c}a_1 \\a_2 \\\vdots \\a_n \end{array} \right): a_1, a_2, \dots, a_n \in \mathbb{K}\right\}
     \end{equation}
     ($\mathbb{K}$ - der Körper von Skalaren)
     Auf $\mathbb{K}^n$ kann man zwei Operationen definieren:
@@ -553,11 +551,94 @@ Es gibt zwei große Grundtypen, zu welchen es den Großteil an Theorie und aufge
     \end{equation}
     nämlich
     \begin{equation}
-        \vec{a} + \vec{b} = \left( \begin{array}{c}a_1 \\a_2 \\ \dots\\a_n \end{array}\right) + \left( \begin{array}{c}b_1 \\b_2 \\ \dots\\b_n \end{array}\right) = \left( \begin{array}{c}a_1 + b_1\\a_2 + b_2 \\ \dots\\a_n +b_n\end{array}\right), \hspace{1cm} \alpha \cdot \vec{a} = \alpha \cdot \left( \begin{array}{c}a_1 \\a_2 \\ \dots\\a_n \end{array}\right) = \left( \begin{array}{c}\alpha \cdot a_1 \\ \alpha \cdot a_2 \\ \dots\\ \alpha \cdot a_n \end{array}\right)
+        \vec{a} + \vec{b} = \left( \begin{array}{c}a_1 \\a_2 \\ \vdots\\a_n \end{array}\right) + \left( \begin{array}{c}b_1 \\b_2 \\ \vdots\\b_n \end{array}\right) = \left( \begin{array}{c}a_1 + b_1\\a_2 + b_2 \\ \vdots\\a_n +b_n\end{array}\right), \hspace{1cm} \alpha \cdot \vec{a} = \alpha \cdot \left( \begin{array}{c}a_1 \\a_2 \\ \vdots\\a_n \end{array}\right) = \left( \begin{array}{c}\alpha \cdot a_1 \\ \alpha \cdot a_2 \\ \vdots\\ \alpha \cdot a_n \end{array}\right)
     \end{equation}
+    Man überprüft leicht, dass für $V = \mathbb{K}^n$ die folgenden Eigenschaften dieser Operationen erfüllt sind:  
 
-    Man überprüft leicht, dass für $V = \mathbb{K}^n$ die golgenden Eigenschaften dieser Operationen erfüllt sind:  
+    \begin{enumerate}
+        \item $\vec{a} + \vec{b} = \vec{b} + \vec{a} \hspace{1cm} \forall \vec{a}, \vec{b} \in V $
+        \item $\vec{a} + (\vec{b} + \vec{c} = (\vec{a} + \vec{b}) + \vec{c}) \hspace{1cm} \forall \vec{a}, \vec{b}, \vec{c} \in V$
+        \item $\exists \vec{0} \in V: \vec{a} + \vec{0} = \vec{0} + \vec{a} = \vec{a} \hspace{1cm} \forall \vec{a} \in V \hspace{1cm}\left( \vec{0} = \left(\begin{array}{c}0 \\0 \\ \vdots\\ 0 \end{array}\right) \right)$
+        \item $\forall \vec{a} \in V \exists (-\vec{a}) \in V: \vec{a} + (-\vec{a}) = (-\vec{a}) + \vec{a} = \vec{0} \hspace{1cm} \left( -\vec{a} = \left( \begin{array}{c}-a_1 \\ -a_2 \\ \vdots \\ -a_n \end{array}\right) \right)$
+        \item $\alpha \cdot (\beta \cdot \vec{a}) = (\alpha \cdot \beta ) \cdot \vec{a} \hspace{1cm} \forall \alpha, \beta \in \mathbb{K} \hspace{0,5cm} \forall \vec{a} \in V$
+        \item $1 \cdot \vec{a} = \vec{a} \hspace{1cm} \forall \vec{a} \in V$
+        \item $\alpha \cdot (\vec{a} + \vec{b}) = \alpha \cdot \vec{a} + \alpha \cdot \vec{b} \hspace{1cm} \forall \alpha \in \mathbb{K} \hspace{0,5cm} \forall \vec{a}, \vec{b} \in V$
+        \item $(\alpha + \beta) \cdot \vec{a} = \alpha \cdot \vec{a} + \beta \cdot \vec{a} \hspace{1cm} \forall \alpha, \beta \in \mathbb{K} \hspace{0,5cm} \forall \vec{a} \in V$
+    \end{enumerate}
+    \underline{Definition.} Eine Menge V mit zwei Operationen \[+: V \times V \rightarrow V, \hspace{0,5cm} \cdot :\mathbb{K} \times V \rightarrow V, \] die, die obigen acht Eigenschaften haben, heißt \underline{$\mathbb{K}$- Vektorraum}, oder ein \underline{Vektorraum} über dem Körper $\mathbb{K}$.
+    Viele Eigenschaften, die für $\mathbb{K}^n$ offensichtlich sind, können alleine aus Eigenschaften ("Axiomen") 1–8 hergeleitet werden.  
     
+    \underline{Beispiele.}
+    \begin{itemize}
+        \item[\blacktriangleright] $\underbrace{0}_{\in \mathbb{K}} \cdot \underbrace{\vec{a}}_{\in V} = \underbrace{\vec{0}}_{\in V}$
+        
+        \underline{Beweis.}
+        \begin{align}
+            &0 \cdot \vec{a} \overset{3.}{=} 0 \cdot \vec{a} + \vec{0} \overset{4.}{=} 0 \cdot \vec{a} + ( \vec{a} + (-\vec{a}) ) \overset{2.}{=}\\  
+            &(0 \cdot \vec{a} + \vec{a}) + (-\vec{a}) \overset{5.}{=} (0 \cdot \vec{a} + 1 \cdot \vec{a}) + (-\vec{a}) \overset{8.}{=}\\ 
+            &(0+1) \cdot \vec{a} + (-\vec{a}) = 1 \cdot \vec{a} + (-\vec{a}) \overset{6.}{=} \vec{a}  + (-\vec{a}) \overset{4.}{=} \vec{0} \hspace{0,5cm}. \blacksquare
+        \end{align}
+
+        \item[\blacktriangleright] $(-1) \cdot \vec{a} = -\vec{a} \hspace{1cm} \forall \vec{a} \in V$
+        \begin{align}
+            &\vec{a} + (-1)\cdot \vec{a} \overset{6.}{=} 1 \cdot \vec{a} + (-1) \cdot \vec{a} \overset{8.}{=} (1+ (-1)) \cdot \vec{a} = 0 \cdot \vec{a} = \vec{0} \\
+            &\Rightarrow (-1) \cdot \vec{a} = - \vec{a} \hspace{0,5cm} . \blacksquare
+        \end{align}
+
+        \underline{Weitere Beispiele von Vektorräumen}
+
+        \item[\blacktriangleright] $V = \{ f: [0,1] \rightarrow \mathbb{R} \} $ ein (unendliche-dimensionaler) $\mathbb{R}$- Vektorraum, mit den Operationen: 
+        \begin{align}
+            (f + g) (t) &= f(t) + g(t) \hspace{1cm}, t \in [0,1]\\
+            (\alpha \cdot f)(t) &= \alpha \cdot f(t) \hspace{1cm}, t \in [0,1]
+        \end{align}
+
+        \item[\blacktriangleright] $ V = \{ \text{ Folgen } (z_n)_{n\in \mathbb{N}} \text{ Komplexer Zahlen } z_n \in \mathbb{C} \text{ mit } \underset{n \rightarrow \infty}{\lim} z_n =0 \}$ - ein (unendliche-dimensionaler) $\mathbb{C}$ - Vektorraum, mit den Operationen
+        \begin{align}
+            ((z_n)_{n \in \mathbb{N}}+ (w_n)_{n\in \mathbb{N}})_n = z_n + w_n \\
+            (\alpha \cdot (z_n)_{n\in \mathbb{N}})_n = \alpha \cdot z_n
+        \end{align}
+
+        \item[\blacktriangleright] Wichtig zu verstehen: wenn wir von $+ : V \times V \rightarrow V$ sprechen, meinen wir implizit, dass das Ergebnis der Addition zweier Element $\vec{a}, \vec{b} \in V$ wieder ein $V$ liegt, und wenn wir von $ \cdot : \mathbb{K} \times V \rightarrow V$ sprechen, meinen wir implizit, dass das Ergebnis der Multiplikation von $\alpha \in \mathbb{K} $ mit $\vec{a} \in V$ wieder in $V$ liegt. In anderen Worten ist $V$ unter der Bildung von Linearkombinationen abgeschlossen. 
+        
+        Beispiel: \hspace{1cm} $V = \{ f: [0,1] \rightarrow \mathbb{R}_{\geqq 0} \}$ ist \underline{kein} $\mathbb{R}$- Vektorraum, weil $(-1) \cdot f = -f$ nicht zum $V$ gehört; 
+
+        \begin{multicols}{2}
+            \begin{equation}
+                f(t) = sin(\pi t)
+            \end{equation}
+            
+            \columnbreak
+
+            \vspace*{\fill}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Kapitel4/Screenshot From 2026-02-19 12-43-07.png}
+                %\caption{Enter Caption}
+                \label{fig:placeholder}
+            \end{figure}
+        \end{multicols}
+
+        \begin{multicols}{2}
+            \begin{equation}
+                g(t) = 1
+            \end{equation}
+            
+            \columnbreak
+
+            \vspace*{\fill}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Kapitel4/Screenshot From 2026-02-19 12-43-18.png}
+                %\caption{Enter Caption}
+                \label{fig:placeholder}
+            \end{figure}
+        \end{multicols}
+
+        $\alpha f + \beta g$ mit $\alpha = 1$, $\beta = -2$ gehört nicht mehr zu $V$, weil\\ $(\alpha f + \beta g)(t)= -1 + \sin(\pi t) < 0 \hspace{1cm} \forall t \in [0,1]$
+        
+    \end{itemize}
+
 \section{Kapitel 6: Lineare Algebra – Lineare Abhängigkeit, Basis und Dimension}
 
 \section{Kapitel 9: Lineare Algebra – Hauptsatz der Linearen Algebra, Teil 1}
